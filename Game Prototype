@@ -1,0 +1,163 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define LENGTH 20
+
+int calculate(int board[LENGTH + 2][LENGTH + 2]);
+void input(int turns, int board[LENGTH + 2][LENGTH + 2]);
+void printboard(int board[LENGTH + 2][LENGTH + 2]);
+void winner(int board[LENGTH + 2][LENGTH + 2]);
+
+int main(void) {
+
+	int board[LENGTH + 2][LENGTH + 2];
+	int count1;
+	int count2;
+	int flag = 1;
+	int count;
+	int turns = 0;
+
+	for (count1 = 0; count1 < LENGTH + 2; count1++) {
+		for (count2 = 0; count2 < LENGTH + 2; count2++) {
+			board[count1][count2] = 0;
+		}
+	}
+
+
+	scanf("%d", &flag);
+
+	do {
+		input(turns, board);
+		count = calculate(board);
+		if (count == 0 && turns != 0)
+			break;
+
+		printboard(board);
+		count--;
+		turns++;
+	} while (1);
+
+	printboard(board);
+	winner(board);
+
+	system("PAUSE");
+	return 0;
+}
+
+int calculate(int board[LENGTH+2][LENGTH+2]) {
+
+	int count1;
+	int count2;
+	int score;
+	int countnum = 0;
+	int tempboard[LENGTH + 2][LENGTH + 2];
+
+	for (count1 = 0; count1 < LENGTH + 2; count1++) {
+		for (count2 = 0; count2 < LENGTH + 2; count2++) {
+			tempboard[count1][count2] = board[count1][count2];
+		}
+	}
+
+	for (count1 = 1; count1 < LENGTH + 1; count1++) {
+		for (count2 = 1; count2 < LENGTH + 1; count2++) {
+
+			score = tempboard[count1 - 1][count2] + tempboard[count1 + 1][count2] + tempboard[count1][count2 - 1] + tempboard[count1][count2 + 1];
+
+			if (tempboard[count1][count2] == 0 && score > 0) {
+				countnum++;
+				board[count1][count2] = 1;
+			}
+			if (tempboard[count1][count2] == 0 && score < 0) {
+				countnum++;
+				board[count1][count2] = -1;
+			}
+		}
+	}
+
+	return countnum;
+}
+
+void printboard(int board[LENGTH+2][LENGTH + 2]) {
+
+	int count;
+	int count1;
+	int count2;
+
+	system("cls");
+
+	printf("   ");
+	for (count = 1; count < LENGTH + 1; count++) {
+		printf("|%2d ", count);
+	}
+	printf("|\n");
+	for (count = 0; count < 4 * LENGTH + 4; count++) {
+		printf("-");
+	}
+	printf("\n");
+	for (count1 = 1; count1 < LENGTH + 1; count1++) {
+		printf("%2d ", count1);
+		for (count2 = 1; count2 < LENGTH + 1; count2++) {
+			if (board[count1][count2] == 0)
+				printf("|   ");
+			if (board[count1][count2] < 0)
+				printf("| X ");
+			if (board[count1][count2] > 0)
+				printf("| O ");
+		}
+		
+		printf("|\n");
+		for (count = 0; count < 4 * LENGTH + 4; count++) {
+			printf("-");
+		}
+		printf("\n");
+	}
+
+	return;
+}
+
+void winner(int board[LENGTH + 2][LENGTH + 2]) {
+
+	int i = 0;
+	int j = 0;
+	int score = 0;
+
+	for (i = 0; i < LENGTH + 1; i++) {
+		for (j = 0; j < LENGTH + 1; j++) {
+			score += board[i][j];
+		}
+	}
+
+	if (score > 0)
+		printf("Player 1 Wins!\n");
+	if (score < 0)
+		printf("Player 2 Wins!\n");
+	if (score == 0)
+		printf("It's a Draw!\n");
+
+	return;
+}
+
+void input(int turns, int board[LENGTH + 2][LENGTH + 2]) {
+
+	int xcoord, ycoord;
+
+	do {
+		printf("Enter the position to place the piece.\n");
+		scanf("%d %d", &xcoord, &ycoord);
+
+		if (board[xcoord][ycoord] == 0)
+			break;
+
+		printf("Error: Invalid Position\n");
+
+	} while (1);
+
+	if (turns % 2 == 0)
+		board[xcoord][ycoord] = 1;
+	else
+		board[xcoord][ycoord] = -1;
+
+	return;
+}
