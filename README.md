@@ -23,6 +23,7 @@ We learned much of the implementation of the library from the YouTube content cr
 
 ## Contributors
 [Ying Qi Wen](https://github.com/yingqi01)
+[Jun Yao Wang](https://github.com/YaoWasTaken)
 
 ## Demo!
 
