@@ -22,8 +22,7 @@ The graphics requires the libraries <SDL.h> and <SDL_image.h> while the still pl
 We learned much of the implementation of the library from the YouTube content creator Tsoding.
 
 ## Contributors
-[Ying Qi Wen][https://github.com/yingqi01]
-[Jun Yao Wang][https://github.com/YaoWasTaken]
+[Ying Qi Wen](https://github.com/yingqi01)
 
 ## Demo!
 
