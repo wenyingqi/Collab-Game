@@ -1,3 +1,5 @@
+// This is the code for the core algorithm of the game. It is a prototype before the graphical implementation.
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
