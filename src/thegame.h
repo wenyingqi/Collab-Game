@@ -14,7 +14,7 @@ typedef struct {
 	int turn;
 	int score;
 	int pos;
-	SDL_Texture *Shooting_star;
-	SDL_Surface *Star_sur;
+	SDL_Texture *Texture;
+	SDL_Surface *Surface;
 }game_t;
 #endif /* thegame_h */
