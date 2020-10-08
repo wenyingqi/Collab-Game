@@ -10,6 +10,6 @@ The rules are the followng:
 3. The game repeats until the board is filled up.
 4. Whoever occupies the most space on the board wins!
 
-
+![](Game_Won.gif)
 
 This is a game created by Ying Qi Wen and Jun Yao Wang. The implementation is in C and uses the SDL library for graphical interface.
