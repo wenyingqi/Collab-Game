@@ -10,6 +10,7 @@ The rules are the followng:
 3. The first player places two Xs in a box that is not preoccupied. The game repeats until the board is filled up.
 4. Whoever occupies the most space on the board wins!
 
+I decided to call this game... Propaganda!
 
 ## Timeline and Background Information
 
