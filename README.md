@@ -1,4 +1,4 @@
-# Collab-Game
+# Collab-Game: Propaganda
 Collaboration of a game. This game is a game of strategy in which two plyaers have to plan carefully how to place their next piece. 
 The goal is to let your piece cover as much area as possible. Beware! Once you have placed your pieces, 
 they will multiply and spread to its neighbours!
